@@ -3,7 +3,7 @@ About glog
 
 Home: https://github.com/google/glog
 
-Package license: BSD
+Package license: BSD 3-Clause
 
 Feedstock license: BSD 3-Clause
 
