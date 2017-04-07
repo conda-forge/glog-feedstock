@@ -7,7 +7,7 @@ package:
 source:
   fn: glog-{{ version }}.tar.gz
   url: https://github.com/google/glog/archive/v{{ version }}.tar.gz
-  sha1: 69f91cd5a1de35ead0bc4103ea87294b0206a456
+  sha256: ce99d58dce74458f7656a68935d7a0c048fa7b4626566a71b7f4e545920ceb10
 
 build:
   number: 0
