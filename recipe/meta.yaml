@@ -22,10 +22,10 @@ requirements:
 
 test:
   commands:
-    - exit $(test -f ${PREFIX}/lib/libglog.dylib)            # [osx]
-    - exit $(test -f ${PREFIX}/lib/libglog_nothreads.dylib)  # [osx]
-    - exit $(test -f ${PREFIX}/lib/libglog.so)               # [linux]
-    - exit $(test -f ${PREFIX}/lib/libglog_nothreads.so)     # [linux]
+    - test -f ${PREFIX}/lib/libglog.dylib            # [osx]
+    - test -f ${PREFIX}/lib/libglog_nothreads.dylib  # [osx]
+    - test -f ${PREFIX}/lib/libglog.so               # [linux]
+    - test -f ${PREFIX}/lib/libglog_nothreads.so     # [linux]
 
 about:
   home: https://github.com/google/glog
