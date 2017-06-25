@@ -13,5 +13,5 @@ cmake ..  \
     -DBUILD_STATIC_LIBS=1 \
     -DBUILD_TESTING=1
 make
-make test
+make test || { cat Testing/Temporary/LastTest.log; exit 1; }
 make install
