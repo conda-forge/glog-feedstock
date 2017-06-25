@@ -1,8 +1,17 @@
 #!/bin/bash
 
-autoconf
-autoreconf -i
-./configure --prefix=$PREFIX
+mkdir build_release
+cd build_release
+
+cmake ..  \
+    -G "Unix Makefiles" \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_PREFIX_PATH="${PREFIX}" \
+    -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
+    -DINSTALL_HEADERS=1 \
+    -DBUILD_SHARED_LIBS=1 \
+    -DBUILD_STATIC_LIBS=1 \
+    -DBUILD_TESTING=1
 make
-make check
+make test
 make install

@@ -16,9 +16,7 @@ build:
 requirements:
   build:
     - toolchain
-    - autoconf
-    - automake
-    - libtool
+    - cmake
 
 test:
   commands:
