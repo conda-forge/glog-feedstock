@@ -21,11 +21,16 @@ build:
 requirements:
   build:
     - toolchain
+    - python     # [win]
+    - cmake      # [win]
     - autoconf   # [unix]
     - automake   # [unix]
     - libtool    # [unix]
 
 test:
+  requires:
+    - python {{ environ['PY_VER'] + '*' }}           # [win]
+
   commands:
     - test -f ${PREFIX}/lib/libglog.dylib            # [osx]
     - test -f ${PREFIX}/lib/libglog.so               # [linux]
