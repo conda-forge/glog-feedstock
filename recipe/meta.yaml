@@ -12,6 +12,7 @@ source:
     # Work around clang bug that does not raise SIGFPE
     - 0001-Always-raise-SIGFPE.patch  # [osx]
     - 0002-tests-fix-compilation-with-C-17.patch
+    - 0003-Remove-non-existent-USAGE-level-from-tests.patch
 
 build:
   number: 1000
