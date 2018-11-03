@@ -8,6 +8,10 @@ source:
   fn: glog-{{ version }}.tar.gz
   url: https://github.com/google/glog/archive/v{{ version }}.tar.gz
   sha256: 7580e408a2c0b5a89ca214739978ce6ff480b5e7d8d7698a2aa92fadc484d1e0
+  patches:
+    # Work around clang bug that does not raise SIGFPE
+    - 0001-Always-raise-SIGFPE.patch  # [osx]
+    - 0002-tests-fix-compilation-with-C-17.patch
 
 build:
   number: 1000
