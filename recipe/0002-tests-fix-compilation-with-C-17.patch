@@ -1,0 +1,44 @@
+From 5fa1d5906596f32eb1bb4f56031ef6496c807227 Mon Sep 17 00:00:00 2001
+From: NeroBurner <pyro4hell@gmail.com>
+Date: Thu, 21 Jun 2018 14:02:46 +0200
+Subject: [PATCH] tests: fix compilation with C++17
+
+Remove throw() commands as they were deprecated with C++11 and are
+removed with C++17
+---
+ src/googletest.h | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/src/googletest.h b/src/googletest.h
+index 10be0c1..11cfe7e 100644
+--- a/src/googletest.h
++++ b/src/googletest.h
+@@ -578,21 +578,21 @@ void (*g_new_hook)() = NULL;
+ 
+ _END_GOOGLE_NAMESPACE_
+ 
+-void* operator new(size_t size) throw(std::bad_alloc) {
++void* operator new(size_t size) {
+   if (GOOGLE_NAMESPACE::g_new_hook) {
+     GOOGLE_NAMESPACE::g_new_hook();
+   }
+   return malloc(size);
+ }
+ 
+-void* operator new[](size_t size) throw(std::bad_alloc) {
++void* operator new[](size_t size) {
+   return ::operator new(size);
+ }
+ 
+-void operator delete(void* p) throw() {
++void operator delete(void* p) {
+   free(p);
+ }
+ 
+-void operator delete[](void* p) throw() {
++void operator delete[](void* p) {
+   ::operator delete(p);
+ }
+-- 
+2.19.1
+
