@@ -16,7 +16,7 @@ source:
     - 0004-Ignore-unmangled-cxx11-symbols.patch
 
 build:
-  number: 1000
+  number: 1001
   skip: true  # [win]
 
 requirements:
