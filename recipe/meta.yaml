@@ -1,4 +1,4 @@
-{% set version = "0.3.5" %}
+{% set version = "0.4.0" %}
 
 package:
   name: glog
@@ -7,26 +7,26 @@ package:
 source:
   fn: glog-{{ version }}.tar.gz
   url: https://github.com/google/glog/archive/v{{ version }}.tar.gz
-  sha256: 7580e408a2c0b5a89ca214739978ce6ff480b5e7d8d7698a2aa92fadc484d1e0
+  sha256: f28359aeba12f30d73d9e4711ef356dc842886968112162bc73002645139c39c
   patches:
     # Work around clang bug that does not raise SIGFPE
     - 0001-Always-raise-SIGFPE.patch  # [osx]
-    - 0002-tests-fix-compilation-with-C-17.patch
     - 0003-Remove-non-existent-USAGE-level-from-tests.patch
     - 0004-Ignore-unmangled-cxx11-symbols.patch
+    # https://github.com/google/glog/pull/447
+    - 447.patch
 
 build:
-  number: 1001
+  number: 0
   skip: true  # [win]
 
 requirements:
   build:
-    - autoconf
-    - automake
-    - libtool
+    - cmake
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
+    - gflags
 
 test:
   commands:
