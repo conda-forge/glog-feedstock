@@ -18,7 +18,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [win]
+  skip: true  # [win and vc<14]
 
 requirements:
   build:
@@ -30,8 +30,8 @@ requirements:
 
 test:
   commands:
-    - test -f ${PREFIX}/lib/libglog.dylib            # [osx]
-    - test -f ${PREFIX}/lib/libglog.so               # [linux]
+    - test -f ${PREFIX}/lib/libglog${SHLIB_EXT}  # [unix]
+    - if not exist %PREFIX%\\Library\\bin\\glog.dll exit 1  # [win]
 
 about:
   home: https://github.com/google/glog
