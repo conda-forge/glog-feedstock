@@ -3,7 +3,7 @@
 mkdir build_release
 cd build_release
 
-cmake ..  \
+cmake ${CMAKE_ARGS} ..  \
     -GNinja \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_PREFIX_PATH="${PREFIX}" \
