@@ -13,8 +13,6 @@ source:
     - 0001-Always-raise-SIGFPE.patch  # [osx]
     - 0003-Remove-non-existent-USAGE-level-from-tests.patch
     - 0004-Ignore-unmangled-cxx11-symbols.patch
-    # https://github.com/google/glog/pull/447
-    - 447.patch
 
 build:
   number: 0
