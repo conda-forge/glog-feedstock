@@ -1,4 +1,4 @@
-{% set version = "0.5.0" %}
+{% set version = "0.6.0" %}
 
 package:
   name: glog
@@ -7,7 +7,7 @@ package:
 source:
   fn: glog-{{ version }}.tar.gz
   url: https://github.com/google/glog/archive/v{{ version }}.tar.gz
-  sha256: eede71f28371bf39aa69b45de23b329d37214016e2055269b3b5e7cfd40b59f5
+  sha256: 8a83bf982f37bb70825df71a9709fa90ea9f4447fb3c099e1d720a439d88bad6
   patches:
     # Work around clang bug that does not raise SIGFPE
     - 0001-Always-raise-SIGFPE.patch  # [osx]
