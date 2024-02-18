@@ -10,9 +10,9 @@ source:
   sha256: 375106b5976231b92e66879c1a92ce062923b9ae573c42b56ba28b112ee4cc11
   patches:
     # Work around clang bug that does not raise SIGFPE
-    - 0001-Always-raise-SIGFPE.patch  # [osx]
-    - 0003-Remove-non-existent-USAGE-level-from-tests.patch
-    - 0004-Ignore-unmangled-cxx11-symbols.patch
+    #- 0001-Always-raise-SIGFPE.patch  # [osx]
+    #- 0003-Remove-non-existent-USAGE-level-from-tests.patch
+    #- 0004-Ignore-unmangled-cxx11-symbols.patch
 
 build:
   number: 0
@@ -29,6 +29,8 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - gflags
+  run:
+    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
 
 test:
   commands:
