@@ -1,3 +1,5 @@
+rem Windows ARM64 stack walking requires a frame-pointer chain.
+if "%target_platform%"=="win-arm64" set "CL=%CL% /Oy-"
 mkdir build_ && cd build_
 
 cmake -GNinja ^
